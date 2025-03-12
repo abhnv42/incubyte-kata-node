@@ -6,5 +6,5 @@
  *
  */
 export default function add(numbers) {
-	return '';
+	if(numbers.length == 0) return Number(numbers);
 }
