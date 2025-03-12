@@ -8,11 +8,15 @@
 export default function add(numbers) {
 	if(numbers.length <= 1) return Number(numbers);
 
-	const NEWLINE_REGEX = /\n/g;
+	const DEFAULT_DELIMETER = ",|\\n";
+	const CUSTOM_DELIMETER = numbers.match(/(?<=^\/\/)./);
 
+	numbers = numbers.replace(/^\/\/.\n/, "");
+
+	let delimeter = (CUSTOM_DELIMETER) ? new RegExp(`,|\\n|${CUSTOM_DELIMETER}`) : new RegExp(",|\\n");
 	let sum = 0;
-	numbers = numbers.replace(NEWLINE_REGEX, ",");
-	const numbersArray = numbers.split(",");
+
+	const numbersArray = numbers.split(delimeter);
 
 	for(let i = numbersArray.length-1; i >= 0; i--) {
 		sum += Number(numbersArray[i]);
