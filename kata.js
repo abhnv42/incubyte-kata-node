@@ -20,10 +20,10 @@ export default function add(numbers) {
 
 	const numbersArray = numbers.split(delimeter);
 
-	for(let i = numbersArray.length-1; i >= 0; i--) {
+	for(let i = 0; i < numbersArray.length; i++) {
 		const currentNumber = Number(numbersArray[i]);
 
-		if(currentNumber > 0) {
+		if(currentNumber >= 0) {
 			sum += currentNumber;
 		} else {
 			negativeNumbers.push(currentNumber);
