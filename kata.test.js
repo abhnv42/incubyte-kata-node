@@ -11,3 +11,7 @@ test('Kata tests', () => {
 test('Kata tests', () => {
 	assert.strictEqual(add('5'), 5);
 })
+
+test('Kata tests', () => {
+	assert.strictEqual(add('5,7'), 12);
+})
