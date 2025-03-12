@@ -3,7 +3,7 @@
 /**
  * String Calculator
  * @param {string} numbers - a list of numbers separated by a delimeter
- *
+ * @returns {number}
  */
 export default function add(numbers) {
 
