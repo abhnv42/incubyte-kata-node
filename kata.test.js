@@ -33,5 +33,9 @@ test('custom delimeter and new lines', () => {
 })
 
 test('a negative number', () => {
-	assert.strictEqual(add('-1'), 12);
+	assert.throws(() => { add("-1") }, (err) => {
+		assert(err instanceof Error);
+		assert.strictEqual(err.message, "negative numbers not allowed -1")
+		return true;
+	}, 'unexpected error');
 })
