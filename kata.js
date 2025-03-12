@@ -6,21 +6,31 @@
  *
  */
 export default function add(numbers) {
-	if(numbers.length <= 1) return Number(numbers);
+	let sum = 0;
+	
+	if(numbers.length === 0) return sum;
 
+	const negativeNumbers = [];
 	const DEFAULT_DELIMETER = ",|\\n";
 	const CUSTOM_DELIMETER = numbers.match(/(?<=^\/\/)./);
 
 	numbers = numbers.replace(/^\/\/.\n/, "");
 
 	let delimeter = (CUSTOM_DELIMETER) ? new RegExp(`,|\\n|${CUSTOM_DELIMETER}`) : new RegExp(",|\\n");
-	let sum = 0;
 
 	const numbersArray = numbers.split(delimeter);
 
 	for(let i = numbersArray.length-1; i >= 0; i--) {
-		sum += Number(numbersArray[i]);
+		const currentNumber = Number(numbersArray[i]);
+
+		if(currentNumber > 0) {
+			sum += currentNumber;
+		} else {
+			negativeNumbers.push(currentNumber);
+		}
+
 	}
 
+	if(negativeNumbers.length > 0) throw new Error(`negative numbers not allowed ${negativeNumbers.join(",")}`);
 	return sum;
 }
