@@ -41,7 +41,7 @@ test('a negative number', () => {
 })
 
 test('multiple negative numbers', () => {
-	assert.throws(() => { add("-1,88,-77,\n-66\n-55") }, (err) => {
+	assert.throws(() => { add("-1,88,-77\n-66\n-55") }, (err) => {
 		assert(err instanceof Error);
 		assert.strictEqual(err.message, "negative numbers not allowed -1,-77,-66,-55")
 		return true;
