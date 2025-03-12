@@ -4,6 +4,10 @@ import assert from "node:assert";
 import test from "node:test";
 import add from "./kata.js";
 
+test('incorrect argument type', () => {
+	assert.throws(() => add(1), Error);
+})
+
 test('empty string', () => {
 	assert.strictEqual(add(''), 0);
 })
