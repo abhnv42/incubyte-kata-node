@@ -5,7 +5,11 @@ import test from "node:test";
 import add from "./kata.js";
 
 test('incorrect argument type', () => {
-	assert.throws(() => add(1), Error);
+	assert.throws(() => add(1), (err) => {
+		assert(err instanceof Error);
+		assert.strictEqual(err.message, "argument must be a string");
+		return true;
+	}, "unexpected error at test: incorrect argument type");
 })
 
 test('empty string', () => {
@@ -41,7 +45,7 @@ test('a negative number', () => {
 		assert(err instanceof Error);
 		assert.strictEqual(err.message, "negative numbers not allowed -1")
 		return true;
-	}, 'unexpected error');
+	}, 'unexpected error at test: a negative number');
 })
 
 test('multiple negative numbers', () => {
@@ -49,5 +53,5 @@ test('multiple negative numbers', () => {
 		assert(err instanceof Error);
 		assert.strictEqual(err.message, "negative numbers not allowed -1,-77,-66,-55")
 		return true;
-	}, 'unexpected error');
+	}, 'unexpected error at test: multiple negative numbers');
 })
