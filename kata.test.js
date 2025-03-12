@@ -7,3 +7,7 @@ import add from "./kata.js";
 test('Kata tests', () => {
 	assert.strictEqual(add(''), 0);
 })
+
+test('Kata tests', () => {
+	assert.strictEqual(add('5'), 5);
+})
