@@ -31,3 +31,7 @@ test('custom delimeter', () => {
 test('custom delimeter and new lines', () => {
 	assert.strictEqual(add('//;\n5;7;8\n9;10'), 39);
 })
+
+test('a negative number', () => {
+	assert.strictEqual(add('-1'), 12);
+})
