@@ -6,6 +6,9 @@
  *
  */
 export default function add(numbers) {
+
+	if(typeof numbers !== "string") throw new Error("argument must be a string");
+
 	let sum = 0;
 	
 	if(numbers.length === 0) return sum;
